@@ -17,13 +17,27 @@ class PlatController extends AbstractController
         $this->entityManager = $entityManager;
     }
 
-    #[Route('/plats', name: 'plat')]
+    #[Route('/plats', name: 'plats')]
     public function index(): Response
     {
         $plats = $this->entityManager->getRepository(Plat::class)->findAll();
 
         return $this->render('plat/index.html.twig', [
             'plats' => $plats
+        ]);
+    }
+
+    #[Route('/plats/{slug}', name: 'plat')]
+    public function show($slug): Response
+    {
+        $plat = $this->entityManager->getRepository(Plat::class)->findOneBySlug($slug);
+
+        if (!$plat) {
+            return $this->redirectToRoute('plats');
+        }
+
+        return $this->render('plat/index.html.twig', [
+            'plat' => $plat
         ]);
     }
 }
