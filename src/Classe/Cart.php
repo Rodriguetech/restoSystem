@@ -81,7 +81,6 @@ class Cart
                 ];
             }
         }
-sl,
         return $cartComplete;
     }
 

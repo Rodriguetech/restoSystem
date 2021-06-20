@@ -29,6 +29,11 @@
 
                     </ul>
                     <div class="d-flex">
+
+                        <div>
+                            <a href="{{ path('cart') }}" class="nav-link">Mon panier</a>
+                        </div>
+
                         {% if app.user %}
                         <div>
                             <a href="{{ path('account') }}" class=" nav-link">Compte <span class="text-muted">({{ app.user.nom }})</span></a>
@@ -44,6 +49,8 @@
                                 <a href="{{ path('register') }}" class="nav-link">Inscription</a>
                             </div>
                         {% endif %}
+
+
                     </div>
                 </div>
             </div>

@@ -28,7 +28,7 @@
                             <div class="d-flex justify-content-between align-items-center">
                                 <small class="text-success">{{ plat.price /100 }} XOF</small>
                                 <div class="btn-group">
-                                    <a href="" class="btn btn-sm btn-outline-success"> Ajouter au panier</a>
+                                    <a href="{{ path('add_to_cart', { 'id' : plat.id }) }}" class="btn btn-sm btn-outline-success"> Ajouter au panier</a>
                                 </div>
 
                             </div>
