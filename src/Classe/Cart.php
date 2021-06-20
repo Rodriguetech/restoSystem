@@ -68,15 +68,15 @@ class Cart
 
         if ($this->get()) {
             foreach ($this->get() as $id => $quantity) {
-                $product_object = $this->entityManager->getRepository(Plat::class)->findOneById($id);
+                $plat_object = $this->entityManager->getRepository(Plat::class)->findOneById($id);
 
-                if (!$product_object) {
+                if (!$plat_object) {
                     $this->delete($id);
                     continue;
                 }
 
                 $cartComplete[] = [
-                    'product' => $product_object,
+                    'plat' => $plat_object,
                     'quantity' => $quantity
                 ];
             }

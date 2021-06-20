@@ -20,10 +20,10 @@
             </thead>
             <tbody>
             {% set total = null %}
-            {% for product in cart %}
+            {% for plat in cart %}
                 <tr>
                     <th>
-                        <img src="/platImage/{{ plat.plat.illustration }}" alt="{{ plat.plat.name }}" height="75px"><br/>
+                        <img src="/platImage/{{ plat.plat.image }}" alt="{{ plat.plat.name }}" height="75px"><br/>
                     </th>
                     <td>
                         {{ plat.plat.name }}<br/>
