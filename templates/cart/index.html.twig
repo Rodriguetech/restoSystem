@@ -3,15 +3,20 @@
 {% block title %}Mon panier{% endblock %}
 
 {% block content %}
-    <h1>Mon panier</h1>
-    Retrouvez l'ensemble des plats que vous avez ajouté à votre panier.
+
+    <nav aria-label="breadcrumb ">
+        <ol class="breadcrumb py-3 bg-white">
+            <li class="breadcrumb-item"><a href="{{ path('home') }}">Accueil</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Panier</li>
+        </ol>
+    </nav>
+
 
     {% if cart|length > 0 %}
         <table class="table mt-3">
             <thead>
             <tr>
                 <th scope="col">Plat</th>
-                <th scope="col"></th>
                 <th scope="col">Quantité</th>
                 <th scope="col">Prix</th>
                 <th scope="col">Total</th>
@@ -24,11 +29,9 @@
                 <tr>
                     <th>
                         <img src="/platImage/{{ plat.plat.image }}" alt="{{ plat.plat.name }}" height="75px"><br/>
-                    </th>
-                    <td>
                         {{ plat.plat.name }}<br/>
-                    </td>
-                    <td>
+                    </th>
+                    <td class="py-5">
                         <a href="{{ path('decrease_to_cart', { 'id' : plat.plat.id }) }}">
                             <img src="{{ asset('assets/img/minus.png') }}" height="12px" alt="Retirer une quantité à mon produit">
                         </a>
@@ -36,10 +39,10 @@
                         <a href="{{ path('add_to_cart', { 'id' : plat.plat.id }) }}">
                             <img src="{{ asset('assets/img/plus.png') }}" height="12px" alt="Ajouter un produit">
                         </a>
-                    </td>
-                    <td>{{ (plat.plat.price / 100) }} XOF</td>
-                    <td>{{ ((plat.plat.price * plat.quantity ) / 100)}} XOF</td>
-                    <td>
+                    </td >
+                    <td class="py-5">{{ (plat.plat.price / 100) }} XOF</td>
+                    <td class="py-5">{{ ((plat.plat.price * plat.quantity ) / 100)}} XOF</td>
+                    <td class="py-5">
                         <a href="{{ path('delete_to_cart', { 'id' : plat.plat.id }) }}">
                             <img src="{{ asset('assets/img/delete.png') }}" height="18px" alt="Supprimer mon produit">
                         </a>
@@ -49,9 +52,12 @@
             {% endfor %}
             </tbody>
         </table>
-        <div class="text-right mb-5">
-            <b>Nombre de plat :</b> {{ cart|length }}<br/>
-            <b>Total de mon panier :</b> {{ (total / 100) }} XOF
+        <div class="text-right mb-5 d-flex justify-content-around">
+            <div>
+                <b>Nombre de plat :</b> {{ cart|length }}<br/>
+                <b>Total de mon panier :</b> {{ (total / 100) }} XOF
+            </div>
+
             <a href="{{ path('order') }}" class="btn btn-success btn-block mt-3">Valider mon panier</a>
         </div>
     {% else %}
