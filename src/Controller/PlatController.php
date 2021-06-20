@@ -36,7 +36,7 @@ class PlatController extends AbstractController
             return $this->redirectToRoute('plats');
         }
 
-        return $this->render('plat/index.html.twig', [
+        return $this->render('plat/show.html.twig', [
             'plat' => $plat
         ]);
     }
