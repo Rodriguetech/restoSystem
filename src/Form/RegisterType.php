@@ -25,7 +25,7 @@ class RegisterType extends AbstractType
                     'max' => 30
                 ]),
                 'attr' => [
-                    'class' => 'form-control mt-2'
+                    'class' => 'form-control w-100'
                 ]
             ])
 
@@ -37,7 +37,7 @@ class RegisterType extends AbstractType
                 ]),
                 'attr' => [
 
-                    'class' => 'form-control'
+                    'class' => 'form-control  mt-2 w-100'
                 ]
             ])
 
@@ -48,7 +48,7 @@ class RegisterType extends AbstractType
                     'max' => 55
                 ]),
                 'attr' => [
-                    'class' => 'form-control mt-2'
+                    'class' => 'form-control mt-2 w-100'
                 ]
             ])
             ->add('password', RepeatedType::class, [
@@ -59,13 +59,13 @@ class RegisterType extends AbstractType
                 'first_options' => [
                     'label' => 'Mot de passe',
                     'attr' => [
-                        'class' => 'form-control mt-2'
+                        'class' => 'form-control mt-2 w-100'
                     ]
                 ],
                 'second_options' => [
                     'label' => 'Confirmez votre mot de passe',
                     'attr' => [
-                        'class' => 'form-control mt-2'
+                        'class' => 'form-control mt-2 w-100'
                     ]
                 ]
             ])
