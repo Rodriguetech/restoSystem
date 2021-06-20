@@ -21,15 +21,15 @@ class PlatCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            TextField::new('name'),
+            TextField::new('name' , 'Libelle'),
             ImageField::new('image')
                 ->setBasePath('platImage/')
                 ->setUploadDir('public/platImage')
                 ->setUploadedFileNamePattern('[randomhash].[extension]')
                 ->setRequired(false),
-            AssociationField::new('category'),
+            AssociationField::new('category' , 'Catégorie'),
             TextareaField::new('description'),
-            MoneyField::new('price')->setCurrency('EUR'),
+            MoneyField::new('price' , 'Prix')->setCurrency('XOF'),
         ];
     }
 
