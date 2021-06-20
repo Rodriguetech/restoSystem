@@ -29,12 +29,21 @@
 
                     </ul>
                     <div class="d-flex">
+                        {% if app.user %}
                         <div>
-                            <a href="{{ path('app_login') }}" class=" nav-link">Connexion</a>
+                            <a href="{{ path('account') }}" class=" nav-link">Compte <span class="text-muted">({{ app.user.nom }})</span></a>
                         </div>
                         <div>
-                            <a href="{{ path('register') }}" class="nav-link">Inscription</a>
+                            <a href="{{ path('app_logout') }}" class="nav-link">Deconnexion</a>
                         </div>
+                        {% else %}
+                            <div>
+                                <a href="{{ path('app_login') }}" class=" nav-link">Connexion</a>
+                            </div>
+                            <div>
+                                <a href="{{ path('register') }}" class="nav-link">Inscription</a>
+                            </div>
+                        {% endif %}
                     </div>
                 </div>
             </div>
