@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class PlatController extends AbstractController
 {
-    #[Route('/plat', name: 'plat')]
+    #[Route('/plats', name: 'plat')]
     public function index(): Response
     {
         return $this->render('plat/index.html.twig', [
